@@ -1,0 +1,136 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col">
+      <h1 class="text-center">Create/ Edit Employee</h1>
+      <form class="form-control" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="firstName" class="form-label">First name</label>
+            <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First name" aria-label="First name">
+            <div *ngIf="getError('firstName', 'required')" class="text-danger">
+              Keresztnév megadása kötelező.
+            </div>
+            <div *ngIf="getError('firstName', 'maxlength') as err" class="text-danger">
+              Max karakterszám {{err.requiredLength}} beírt: {{err.actualLength}}
+            </div>
+          </div>
+          <div class="col">
+            <label for="lastName" class="form-label">Last name</label>
+            <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+            <div *ngIf="getError('lastName', 'required')" class="text-danger">
+              Vezetéknév megadása kötelező.
+            </div>
+            <div *ngIf="getError('lastName', 'maxlength') as err" class="text-danger">
+              Max karakterszám {{err.requiredLength}} beírt: {{err.actualLength}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input formControlName="email" type="text" class="form-control" id="email" aria-describedby="emailHelp">
+              <div *ngIf="getError('email', 'taken')" class="text-danger">
+                Email cím foglalt.
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="age" class="form-label">Age:</label>
+              <input formControlName="age" type="number" class="form-control" id="age" aria-describedby="emailHelp">
+              <div *ngIf="getError('age', 'range') as err" class="text-danger">
+                Életkor {{err.min}} és {{err.max}} közötti érték kell legyen. Megadva: {{err.actual}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!--         <div class="row mb-3">
+          <div class="col">
+            <span>Select gender:</span>
+            <div class="form-check">
+              <input value="female" formControlName="gender" class="form-check-input"
+                type="radio" name="flexRadioDefault" id="female" checked>
+              <label class="form-check-label" for="female">
+                Woman
+              </label>
+            </div>
+            <div class="form-check">
+              <input value="male" formControlName="gender" class="form-check-input"
+                type="radio" name="flexRadioDefault" id="male">
+              <label class="form-check-label" for="male">
+                Man
+              </label>
+            </div>
+          </div>
+          <div class="col">
+            <span>Select position:</span>
+            <select formControlName="position" *ngIf="allPositions$ | async as allPositions; else loading"
+              class="form-select" aria-label="Default select example">
+              <option *ngFor="let position of allPositions" [value]="position.id">{{position.name }}</option>
+            </select>
+            <ng-template #loading>
+              <div class="spinner-border text-waring"></div>
+            </ng-template>
+          </div>
+        </div> -->
+
+        <div class="row g-2 mb-4" formGroupName="address">
+          <span>Address:</span>
+          <div class="col-sm-4">
+            <input formControlName="city" type="text" class="form-control" placeholder="City" aria-label="City">
+          </div>
+          <div class="col-sm-6">
+            <input formControlName="street" type="text" class="form-control" placeholder="Street" aria-label="Street">
+          </div>
+          <div class="col-sm">
+            <input formControlName="zip" type="number" class="form-control" aria-label="Zip">
+            <div *ngIf="getError('address.zip', 'range') as err" class="text-danger">
+              Irányítószám {{err.min}} és {{err.max + 1}} közötti érték kell legyen. Megadva: {{err.actual}}
+            </div>
+          </div>
+        </div>
+
+        <!--
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        -->
+        <div class="row mb-3">
+          <span>Add your skill</span>
+          <div class="col mt-1">
+            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="addSkill()">+ Add your skill</button>
+          </div>
+        </div>
+        <div formArrayName="skills" class="row">
+          <ng-container *ngFor="let skill of getSkills(); let i = index">
+            <div class="input-group mb-2">
+               <input [formControlName]="i" type="text" class="form-control">
+               <button (click)="deleteSkill(i)" class="btn btn-outline-secondary" type="button">Delete</button>
+            </div>
+          </ng-container>
+        </div>
+
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="isAccepted">
+          <label class="form-check-label" for="exampleCheck1">The data corresponds to reality.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+

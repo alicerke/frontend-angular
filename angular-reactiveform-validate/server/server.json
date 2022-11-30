@@ -1,0 +1,42 @@
+{
+  "positions": [
+    {
+      "id": 1,
+      "name": "HR"
+    },
+    {
+      "id": 2,
+      "name": "Menedzser"
+    },
+    {
+      "id": 3,
+      "name": "Junior fejleszt\u0151"
+    },
+    {
+      "id": 4,
+      "name": "Medior fejleszt\u0151"
+    },
+    {
+      "id": 5,
+      "name": "Senior fejleszt\u0151"
+    },
+    {
+      "id": 6,
+      "name": "Architect"
+    },
+    {
+      "id": 7,
+      "name": "Rendszergazda"
+    },
+    {
+      "id": 8,
+      "name": "CEO"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "email": "teszt@teszt.hu"
+    }
+  ]
+}
