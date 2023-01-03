@@ -29,7 +29,7 @@ const routes: Routes = [
     component: EditableComponent,
   },
   {
-    path: 'editable/:id',
+    path: 'editable/edit/:id',
     component: UserEditorComponent,
   },
   {

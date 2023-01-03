@@ -1,33 +1,6 @@
 {
   "users": [
     {
-      "first_name": "Ballmer",
-      "last_name": "Steve",
-      "email": "esoutham0@mtv.com",
-      "gender": "Male",
-      "address": "136 Westport Park, Southampton",
-      "onBoarding": "1994-03-16T23:00:00.000Z",
-      "salary": 300000,
-      "active": true,
-      "id": 1
-    },
-    {
-      "id": 3,
-      "first_name": "Cally",
-      "last_name": "O'Sheilds",
-      "email": "cosheilds2@technorati.com",
-      "gender": "Male",
-      "address": "47 Marquette Alley"
-    },
-    {
-      "id": 4,
-      "first_name": "Alfonso",
-      "last_name": "Lett",
-      "email": "slett3@networksolutions.com",
-      "gender": "Male",
-      "address": "6303 Debra Plaza"
-    },
-    {
       "first_name": "Lizzie",
       "last_name": "Piggin",
       "email": "lpiggin4@wisc.edu",
